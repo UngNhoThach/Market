@@ -1,0 +1,124 @@
+﻿@using PagedList.Core.Mvc;
+@using System.Globalization
+
+@model PagedList.Core.IPagedList<Market.Models.Product>
+
+@{
+    int currentPage = ViewBag.CurrentPage;
+    int totalPage = ViewBag.TotalPage;
+    ViewData["Title"] = "Danh sách sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="Home" asp-action="Index"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <span class="breadcrumb-item active">Danh sách sản phẩm : page @currentPage</span>
+        </nav>
+    </div>
+</div>
+<div class="row m-b-30">
+    <div class="col-lg-8">
+        <div class="d-md-flex">
+            <div class="m-b-10 m-r-15">
+                <select class="custom-select" style="min-width: 180px;" asp-items="ViewBag.Danhmuc">
+                    <option value="" disabled selected>Chọn category</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 text-right">
+        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Create" class="btn btn-primary">
+            Add Product
+        </a>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Thumb</th>
+                <th scope="col">Active</th>
+                <th scope="col">UnitsStock</th>
+                <th scope="col">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                int stt = 1;
+                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@(stt++)</th>
+                        <td>@item.ProductName</td>
+                        <td>@item.Description</td>
+                        <td>@item.Price.Value.ToString("#,###", cul.NumberFormat) VND</td>
+                        <td>@item.Thumb</td>
+                        @if (item.Active)
+                        {
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-success badge-dot m-r-10"></div>
+                                </div>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-danger badge-dot m-r-10"></div>
+                                </div>
+                            </td>
+                        }
+                        @if (item.UnitsInStock)
+                        {
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-success badge-dot m-r-10"></div>
+                                </div>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-danger badge-dot m-r-10"></div>
+                                </div>
+                            </td>
+                        }
+                        <td>
+                            <a class="btn btn-primary btn-tone m-r-5" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">View</a>
+                            <a class="btn btn-secondary btn-tone m-r-5" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">Edit</a>
+                            <a class="btn btn-danger btn-tone m-r-5" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class="row m-b-30">
+        <div class="col-lg-8">
+            <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Page @currentPage của @totalPage  </div>
+        </div>
+        <div class="col-lg-4 text-right">
+            <ul class="pagination">
+                <pager list="@Model" asp-area="Admin" asp-controller="AdminProducts" asp-action="Index"></pager>
+            </ul>
+        </div>
+    </div>
+</div>
+@*@section Scripts{ 
+    <script>
+        $(document).ready(function(){
+            var CartID = jQuery(this).children(":selected").attr("value");
+
+        })
+    </script>
+}*@

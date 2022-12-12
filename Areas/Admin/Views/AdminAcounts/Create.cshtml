@@ -1,0 +1,89 @@
+﻿@model Market.Models.Account
+
+@{
+    ViewData["Title"] = "Thêm tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/admin_assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+<form id="form-validation" asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label control-label" asp-for="FullName">FullName</label>
+        <div class="col-sm-10">
+            <input asp-for="FullName" class="form-control" placeholder="Nhập tên đầy đủ của bạn" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label control-label" asp-for="Phone">Phone</label>
+        <div class="col-sm-10">
+            <input asp-for="Phone" type="text" class="form-control"  placeholder="Nhập số điện thoại"/>
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label control-label" asp-for="Email">Email</label>
+        <div class="col-sm-10">
+            <input asp-for="Email" type="email" class="form-control" placeholder="Nhập email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label control-label" asp-for="Password">Nhập mật khẩu</label>
+        <div class="col-sm-10">
+            <input asp-for="Password" id="password" type="text" class="form-control" name="inputPassword" placeholder="Nhập mật khẩu">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+    </div>
+@*    <div class="form-group row">
+        <label class="col-sm-2 col-form-label control-label">Nhập lại mật khẩu</label>
+        <div class="col-sm-10">
+            <input type="text" asp-for="Password" class="form-control" name="inputPasswordConfirm" placeholder="Nhập lại mật khẩu">
+        </div>
+    </div>
+*@   
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label control-label" asp-for="Salt">Salt</label>
+        <div class="col-sm-10">
+            <input asp-for="Salt" type="text" class="form-control" placeholder="Nhập salt" required>
+            <span asp-validation-for="Salt" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label control-label" asp-for="Active">Active</label>
+        <div class="col-sm-10">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
+            </label>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label control-label">RoleId</label>
+        <div class="col-sm-10">
+            <!-- Single select boxes -->
+            <div class="m-b-15">
+                <select class="select2"  asp-for="RoleId" class="form-control" asp-items="ViewBag.RoleId">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label control-label">LastLogin</label>
+        <div class="col-sm-6">
+                <input asp-for="LastLogin" class="form-control" />
+                <span asp-validation-for="LastLogin" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label control-label">CreateDate</label>
+        <div class="col-sm-6">
+                <input asp-for="CreateDate" class="form-control" />
+                <span asp-validation-for="CreateDate" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group text-right">
+        <button type="submit" value="Create" class="btn btn-primary">Tạo</button>
+    </div>
+    
+</form>
