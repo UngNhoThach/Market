@@ -10151,11 +10151,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NThach\\source\\repos\\NhoThach\\Market_Shop\\Market\\Market\\Market.csproj",
+      "projectUniqueName": "D:\\Hoc\\Gib_Project\\Market\\Market\\Market.csproj",
       "projectName": "Market",
-      "projectPath": "C:\\Users\\NThach\\source\\repos\\NhoThach\\Market_Shop\\Market\\Market\\Market.csproj",
+      "projectPath": "D:\\Hoc\\Gib_Project\\Market\\Market\\Market.csproj",
       "packagesPath": "C:\\Users\\NThach\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NThach\\source\\repos\\NhoThach\\Market_Shop\\Market\\Market\\obj\\",
+      "outputPath": "D:\\Hoc\\Gib_Project\\Market\\Market\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rTjcXVxYDCY+vL+5txv64X0ytgcEFgKrKc1P8kCj8MQPJhcn6Snb517YN6jrHyGWtSlqm7jB9O+IKoWhq4GrGA==",
+  "dgSpecHash": "xjARY2BBN6WFL49O4P6J0rHmpbHCS9j1Bb1AVRsnXQg18geVgkk7zreNfkXYokZKIccryHKtVcojXEzCYnhy7g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NThach\\source\\repos\\NhoThach\\Market_Shop\\Market\\Market\\Market.csproj",
+  "projectFilePath": "D:\\Hoc\\Gib_Project\\Market\\Market\\Market.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NThach\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\NThach\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
